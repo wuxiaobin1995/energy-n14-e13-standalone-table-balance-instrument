@@ -1,7 +1,7 @@
 /*
  * @Author      : Mr.bin
  * @Date        : 2022-04-22 09:49:03
- * @LastEditTime: 2022-04-26 09:57:38
+ * @LastEditTime: 2022-09-15 16:32:04
  * @Description : vuex
  */
 import Vue from 'vue'
@@ -26,81 +26,48 @@ export default new Vuex.Store({
   // ],
 
   state: {
-    /* 当前登录管理员 */
-    currentAdmin: {
-      adminId: '', // 账号
-      adminPassword: '' // 密码
-    },
-
-    /* 当前登录用户 */
-    currentUser: {
-      userId: '', // 账号
-      userPassword: '', // 密码
-      userName: '', // 姓名
-      sex: '', // 性别
-      birthday: '', // 出生日期
-      affectedSide: '', // 患侧
-      information: '' // 基本信息
-    },
-
-    /* x，y调零基准值 */
+    // x，y调零基准值
     zeroStandard: {
       xStandard: null,
       yStandard: null
     },
 
-    /* 是否展开、折叠侧边菜单栏 */
-    isCollapse: false, // 默认展开
+    // 当前选择的用户及其信息
+    currentUserInfo: {
+      userId: '', // 唯一id
+      userName: '', // 姓名
+      sex: '', // 性别
+      affectedSide: '', // 患侧
+      height: '', // 身高
+      weight: '', // 体重
+      birthday: '', // 出生日期
+      remarks: '', // 备注
+      lastLoginTime: '' // 最后登录时间
+    },
 
-    /* 蓝牙连接与否 */
-    isBluetooth: false
+    // 语音开关
+    voiceSwitch: true
   },
 
   mutations: {
-    /* 当前登录管理员 */
-    SET_CURRENTADMIN(state, currentAdmin) {
-      state.currentAdmin = currentAdmin
-    },
-
-    /* 当前登录用户 */
-    SET_CURRENTUSER(state, currentUser) {
-      state.currentUser = currentUser
-    },
-
-    /* x，y调零基准值 */
+    // x，y调零基准值
     SET_ZEROSTANDARD(state, zeroStandard) {
       state.zeroStandard = zeroStandard
     },
 
-    /* 是否展开、折叠侧边菜单栏 */
-    SET_ISCOLLAPSE(state, isCollapse) {
-      state.isCollapse = isCollapse
+    // 当前选择的用户及其信息
+    CHANGE_CURRENTUSERINFO(state, currentUserInfo) {
+      state.currentUserInfo = currentUserInfo
     },
 
-    /* 蓝牙连接与否 */
-    SET_ISBLUETOOTH(state, isBluetooth) {
-      state.isBluetooth = isBluetooth
+    // 语音开关
+    SET_VOICESWITCH(state, voiceSwitch) {
+      state.voiceSwitch = voiceSwitch
     }
   },
 
   actions: {
-    /* 当前登录管理员 */
-    setCurrentAdmin({ commit }, currentAdmin) {
-      return new Promise((resolve, reject) => {
-        commit('SET_CURRENTADMIN', currentAdmin)
-        resolve()
-      })
-    },
-
-    /* 当前登录用户 */
-    setCurrentUser({ commit }, currentUser) {
-      return new Promise((resolve, reject) => {
-        commit('SET_CURRENTUSER', currentUser)
-        resolve()
-      })
-    },
-
-    /* x，y调零基准值 */
+    // x，y调零基准值
     setZeroStandard({ commit }, zeroStandard) {
       return new Promise((resolve, reject) => {
         commit('SET_ZEROSTANDARD', zeroStandard)
@@ -108,18 +75,18 @@ export default new Vuex.Store({
       })
     },
 
-    /* 是否展开、折叠侧边菜单栏 */
-    setIsCollapse({ commit }, isCollapse) {
+    // 当前选择的用户及其信息
+    setCurrentUser({ commit }, currentUserInfo) {
       return new Promise((resolve, reject) => {
-        commit('SET_ISCOLLAPSE', isCollapse)
+        commit('CHANGE_CURRENTUSERINFO', currentUserInfo)
         resolve()
       })
     },
 
-    /* 蓝牙连接与否 */
-    setIsBluetooth({ commit }, isBluetooth) {
+    // 语音开关
+    setVoiceSwitch({ commit }, voiceSwitch) {
       return new Promise((resolve, reject) => {
-        commit('SET_ISBLUETOOTH', isBluetooth)
+        commit('SET_VOICESWITCH', voiceSwitch)
         resolve()
       })
     }

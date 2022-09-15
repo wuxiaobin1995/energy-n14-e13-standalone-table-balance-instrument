@@ -1,7 +1,7 @@
 /*
  * @Author      : Mr.bin
  * @Date        : 2022-04-22 09:49:03
- * @LastEditTime: 2022-04-22 11:40:13
+ * @LastEditTime: 2022-09-15 16:48:32
  * @Description : 渲染进程入口
  */
 import Vue from 'vue'
@@ -20,17 +20,15 @@ import 'element-ui/lib/theme-chalk/index.css'
 import * as Echarts from 'echarts'
 /* 引入moment时间日期库 */
 import moment from 'moment'
-/* 引入进度条插件 */
-import QProgress from 'qier-progress'
-/* 引入封装好的PDF插件 */
-import { htmlToPdf } from '@/utils/htmlToPdf.js'
-
 // /* 引入封装好的axios */
 // import { instance } from '@/api/index.js'
+/* 引入封装好的PDF插件 */
+import { htmlToPdf } from '@/utils/htmlToPdf.js'
+/* 引入进度条插件 */
+import QProgress from 'qier-progress'
 
 /* 引入日志文件 */
 import { getLogger } from '@/utils/log4js.js'
-
 /* 引入初始化数据库 */
 import { initDB } from '@/db/index.js'
 
@@ -44,15 +42,13 @@ Vue.use(ElementUI)
 Vue.prototype.$echarts = Echarts
 /* 使用moment时间日期库 */
 Vue.prototype.$moment = moment
+// /* 使用封装好的axios */
+// Vue.prototype.$axios = instance
 /* 使用封装好的PDF插件 */
 Vue.prototype.$htmlToPdf = htmlToPdf
 
-// /* 使用封装好的axios */
-// Vue.prototype.$axios = instance
-
 /* 使用日志文件 */
 Vue.prototype.$getLogger = getLogger
-
 /* 使用数据库 */
 initDB()
   .open()
