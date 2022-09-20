@@ -1,12 +1,32 @@
 <!--
  * @Author      : Mr.bin
- * @Date        : 2022-04-22 09:49:03
- * @LastEditTime: 2022-09-20 11:01:42
- * @Description : 根组件
+ * @Date        : 2022-06-27 15:10:57
+ * @LastEditTime: 2022-09-20 11:33:26
+ * @Description : 调零
 -->
 <template>
-  <div id="app">
-    <router-view />
+  <div class="set-zero">
+    <div class="wrapper">
+      <el-page-header
+        class="page"
+        title="返回首页"
+        content="调零"
+        @back="handleToHome"
+      ></el-page-header>
+
+      <div class="info">说明：请确保底盘静止状态下，进行调零！</div>
+      <el-button class="btn" type="success" round @click="handleSetZero"
+        >调零按钮</el-button
+      >
+      <div class="item">
+        <div class="text">
+          x基准值：<span class="value">{{ xStandard }}</span>
+        </div>
+        <div class="text">
+          y基准值：<span class="value">{{ yStandard }}</span>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -16,7 +36,7 @@ import SerialPort from 'serialport'
 import Readline from '@serialport/parser-readline'
 
 export default {
-  name: 'App',
+  name: 'set-zero',
 
   data() {
     return {
@@ -32,10 +52,8 @@ export default {
   },
 
   created() {
-    /* 初始化医院名称 */
-    if (!window.localStorage.getItem('hospital')) {
-      window.localStorage.setItem('hospital', '')
-    }
+    this.xStandard = this.$store.state.zeroStandard.xStandard
+    this.yStandard = this.$store.state.zeroStandard.yStandard
 
     this.initSerialPort()
   },
@@ -48,6 +66,15 @@ export default {
   },
 
   methods: {
+    /**
+     * @description: 回到首页
+     */
+    handleToHome() {
+      this.$router.push({
+        path: '/home'
+      })
+    },
+
     /**
      * @description: 初始化串口对象
      */
@@ -70,7 +97,7 @@ export default {
               message: `连接到串口：${comPath}；波特率为：${this.scmBaudRate}`,
               type: 'success',
               position: 'bottom-right',
-              duration: 4000
+              duration: 2000
             })
 
             /**
@@ -80,7 +107,7 @@ export default {
              */
             this.usbPort = new SerialPort(comPath, {
               baudRate: this.scmBaudRate, // 默认波特率115200
-              autoOpen: true // 是否自动开启串口
+              autoOpen: false // 是否自动开启串口
             })
             /* 调用 this.usbPort.open() 成功时触发（开启串口成功） */
             this.usbPort.on('open', () => {})
@@ -95,7 +122,7 @@ export default {
                   center: true,
                   confirmButtonText: '刷新页面',
                   callback: () => {
-                    window.location.reload()
+                    this.handleRefresh()
                   }
                 }
               )
@@ -125,22 +152,22 @@ export default {
                   })
                   .then(() => {
                     this.$message({
-                      message: '开机调零成功',
+                      message: '手动调零成功',
                       type: 'success',
-                      duration: 2500
+                      duration: 2000
                     })
                   })
                   .catch(err => {
                     this.$alert(
-                      `${err}。请重新连接USB线，然后点击"刷新页面"按钮！`,
-                      '开机调零失败',
+                      `${err}。请点击"刷新页面"按钮，然后重新调零！`,
+                      '调零失败',
                       {
                         type: 'error',
                         showClose: false,
                         center: true,
                         confirmButtonText: '刷新页面',
                         callback: () => {
-                          window.location.reload()
+                          this.handleRefresh()
                         }
                       }
                     )
@@ -159,13 +186,15 @@ export default {
                 closeOnPressEscape: false,
                 center: true,
                 confirmButtonText: '刷新页面',
-                cancelButtonText: '忽 略'
+                cancelButtonText: '返回首页'
               }
             )
               .then(() => {
-                window.location.reload()
+                this.handleRefresh()
               })
-              .catch(() => {})
+              .catch(() => {
+                this.handleToHome()
+              })
           }
         })
         .catch(err => {
@@ -180,17 +209,85 @@ export default {
               closeOnPressEscape: false,
               center: true,
               confirmButtonText: '刷新页面',
-              cancelButtonText: '忽 略'
+              cancelButtonText: '返回首页'
             }
           )
             .then(() => {
-              window.location.reload()
+              this.handleRefresh()
             })
-            .catch(() => {})
+            .catch(() => {
+              this.handleToHome()
+            })
         })
+    },
+
+    /**
+     * @description: 调零按钮
+     */
+    handleSetZero() {
+      if (this.usbPort) {
+        if (!this.usbPort.isOpen) {
+          this.usbPort.open()
+        }
+      }
+    },
+
+    /**
+     * @description: 刷新页面
+     */
+    handleRefresh() {
+      this.$router.push({
+        path: '/refresh',
+        query: {
+          routerName: JSON.stringify('/set-zero'),
+          duration: JSON.stringify(300)
+        }
+      })
     }
   }
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.set-zero {
+  width: 100%;
+  height: 100%;
+  @include flex(row, center, center);
+
+  .wrapper {
+    width: 86%;
+    height: 90%;
+    border-radius: 34px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px #929292;
+    padding: 40px;
+    @include flex(column, center, center);
+    position: relative;
+
+    .page {
+      position: absolute;
+      top: 20px;
+      left: 30px;
+    }
+
+    .info {
+      color: red;
+      font-size: 30px;
+      margin-bottom: 60px;
+    }
+    .btn {
+      font-size: 30px;
+    }
+    .item {
+      @include flex(row, center, center);
+      .text {
+        margin: 60px;
+        font-size: 28px;
+        .value {
+          color: red;
+        }
+      }
+    }
+  }
+}
+</style>

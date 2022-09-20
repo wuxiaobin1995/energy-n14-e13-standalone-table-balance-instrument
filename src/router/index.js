@@ -1,12 +1,11 @@
 /*
  * @Author      : Mr.bin
  * @Date        : 2022-04-22 09:49:03
- * @LastEditTime: 2022-09-15 16:12:19
+ * @LastEditTime: 2022-09-20 11:25:49
  * @Description : 路由
  */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
@@ -17,19 +16,74 @@ VueRouter.prototype.push = function push(location) {
 }
 
 const routes = [
+  /*
+   * 前面加"/"表示绝对路径，不加"/"表示相对路径
+   * 一般嵌套路由中的子路由不需要加"/"，它会在父路由后自动加上"/子路由"
+   * 比如父 "/father"，子 "child"，要想访问子路由，跳转链接需要写成 "/father/child"
+   */
+
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'layout',
+    component: () => import('@/layout'),
+    redirect: '/home',
+    children: [
+      // 首页
+      {
+        path: 'home',
+        name: 'home',
+        component: () => import('@/views/home'),
+        meta: ['首页']
+      },
+      // 用户
+      {
+        path: 'user',
+        name: 'user',
+        component: () => import('@/views/user'),
+        meta: ['用户']
+      },
+      // 添加用户
+      {
+        path: 'user-add',
+        name: 'user-add',
+        component: () => import('@/views/user-add'),
+        meta: ['添加用户']
+      },
+      // 用户信息修改
+      {
+        path: 'user-edit',
+        name: 'user-edit',
+        component: () => import('@/views/user-edit'),
+        meta: ['用户信息修改']
+      },
+      // 设置医院名称
+      {
+        path: 'set-hospital',
+        name: 'set-hospital',
+        component: () => import('@/views/set/set-hospital'),
+        meta: ['设置医院名称']
+      },
+      // 调零
+      {
+        path: 'set-zero',
+        name: 'set-zero',
+        component: () => import('@/views/set/set-zero'),
+        meta: ['调零']
+      },
+      // 开发者
+      {
+        path: 'set-developer',
+        name: 'set-developer',
+        component: () => import('@/views/set/set-developer'),
+        meta: ['开发者']
+      }
+    ]
   },
+
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/refresh',
+    name: 'refresh',
+    component: () => import('@/views/refresh')
   },
 
   {

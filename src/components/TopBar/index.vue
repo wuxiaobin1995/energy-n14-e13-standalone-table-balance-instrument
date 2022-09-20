@@ -1,7 +1,7 @@
 <!--
  * @Author      : Mr.bin
  * @Date        : 2022-09-15 16:09:19
- * @LastEditTime: 2022-09-15 16:09:29
+ * @LastEditTime: 2022-09-20 10:55:45
  * @Description : 顶部栏
 -->
 <template>
@@ -38,9 +38,6 @@
             >
             <el-dropdown-item icon="el-icon-odometer" divided command="调零"
               >调零</el-dropdown-item
-            >
-            <el-dropdown-item icon="el-icon-thumb" command="设置K"
-              >设置K</el-dropdown-item
             >
             <el-dropdown-item
               icon="el-icon-s-promotion"
@@ -104,22 +101,6 @@ export default {
           this.$router.push({
             path: '/set-zero'
           })
-          break
-        case '设置K':
-          this.$prompt('请输入密码', '提示', {
-            confirmButtonText: '确定',
-            cancelButtonText: '取消',
-            inputPattern: /^energy$/,
-            inputErrorMessage: '密码不正确',
-            showClose: true,
-            closeOnClickModal: false
-          })
-            .then(() => {
-              this.$router.push({
-                path: '/set-k'
-              })
-            })
-            .catch(() => {})
           break
         case '开发者':
           this.$prompt('请输入密码', '提示', {

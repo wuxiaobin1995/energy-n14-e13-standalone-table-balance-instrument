@@ -1,7 +1,7 @@
 /*
  * @Author      : Mr.bin
  * @Date        : 2022-04-22 09:49:03
- * @LastEditTime: 2022-09-15 16:32:04
+ * @LastEditTime: 2022-09-20 11:29:40
  * @Description : vuex
  */
 import Vue from 'vue'
@@ -76,7 +76,7 @@ export default new Vuex.Store({
     },
 
     // 当前选择的用户及其信息
-    setCurrentUser({ commit }, currentUserInfo) {
+    changeCurrentUserInfo({ commit }, currentUserInfo) {
       return new Promise((resolve, reject) => {
         commit('CHANGE_CURRENTUSERINFO', currentUserInfo)
         resolve()
