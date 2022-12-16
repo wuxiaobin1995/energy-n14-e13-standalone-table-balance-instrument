@@ -1,7 +1,7 @@
 <!--
  * @Author      : Mr.bin
  * @Date        : 2022-09-16 10:42:07
- * @LastEditTime: 2022-09-20 11:15:46
+ * @LastEditTime: 2022-12-16 10:24:16
  * @Description : home
 -->
 <template>
@@ -12,6 +12,12 @@
       </div>
       <div class="one">
         <el-image
+          class="item item2"
+          :src="src2"
+          fit="scale-down"
+          @click.native="handleClick('src2')"
+        ></el-image>
+        <el-image
           class="item item3"
           :src="src3"
           fit="scale-down"
@@ -20,30 +26,16 @@
       </div>
       <div class="two">
         <el-image
-          class="item item2"
-          :src="src2"
-          fit="scale-down"
-          @click.native="handleClick('src2')"
-        ></el-image>
-        <el-image
-          class="item item4"
-          :src="src4"
-          fit="scale-down"
-          @click.native="handleClick('src4')"
-        ></el-image>
-      </div>
-      <div class="three">
-        <el-image
           class="item item1"
           :src="src1"
           fit="scale-down"
           @click.native="handleClick('src1')"
         ></el-image>
         <el-image
-          class="item item5"
-          :src="src5"
+          class="item item4"
+          :src="src4"
           fit="scale-down"
-          @click.native="handleClick('src5')"
+          @click.native="handleClick('src4')"
         ></el-image>
       </div>
 
@@ -103,7 +95,6 @@ export default {
       src2: require('@/assets/img/Home/测试模块.png'),
       src3: require('@/assets/img/Home/训练模块.png'),
       src4: require('@/assets/img/Home/数据记录.png'),
-      src5: require('@/assets/img/Home/游戏.png'),
 
       centerDialogVisible: false, // 数据记录选择弹窗
 
@@ -193,11 +184,6 @@ export default {
             })
             .catch(() => {})
         }
-      } else if (src === 'src5') {
-        this.$message({
-          message: '提示，该功能仍在开发阶段......',
-          type: 'warning'
-        })
       }
     },
 
@@ -281,26 +267,23 @@ export default {
       bottom: 20px;
     }
     .one {
-      margin-top: 30px;
-      @include flex(row, center, center);
-    }
-    .two {
+      margin-top: 90px;
       @include flex(row, center, center);
       .item2 {
-        margin-right: 260px;
+        margin-right: 200px;
       }
-      .item4 {
-        margin-left: 260px;
+      .item3 {
+        margin-left: 200px;
       }
     }
-    .three {
-      margin-top: 60px;
+    .two {
+      margin-top: 130px;
       @include flex(row, center, center);
       .item1 {
-        margin-right: 420px;
+        margin-right: 410px;
       }
-      .item5 {
-        margin-left: 420px;
+      .item4 {
+        margin-left: 410px;
       }
     }
 
