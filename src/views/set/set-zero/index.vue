@@ -1,7 +1,7 @@
 <!--
  * @Author      : Mr.bin
  * @Date        : 2022-06-27 15:10:57
- * @LastEditTime: 2022-09-20 11:33:26
+ * @LastEditTime: 2022-12-23 21:04:00
  * @Description : 调零
 -->
 <template>
@@ -14,7 +14,9 @@
         @back="handleToHome"
       ></el-page-header>
 
-      <div class="info">说明：请确保底盘静止状态下，进行调零！</div>
+      <div class="info">
+        说明：请确保底盘静止状态下，点击"调零按钮"进行调零！
+      </div>
       <el-button class="btn" type="success" round @click="handleSetZero"
         >调零按钮</el-button
       >

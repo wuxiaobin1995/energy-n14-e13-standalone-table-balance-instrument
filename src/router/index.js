@@ -1,7 +1,7 @@
 /*
  * @Author      : Mr.bin
  * @Date        : 2022-04-22 09:49:03
- * @LastEditTime: 2022-12-16 10:27:27
+ * @LastEditTime: 2022-12-23 21:47:33
  * @Description : 路由
  */
 import Vue from 'vue'
@@ -83,6 +83,15 @@ const routes = [
         name: 'set-data-migration',
         component: () => import('@/views/set/set-data-migration'),
         meta: ['数据迁移']
+      },
+
+      /* 测试模块 */
+      // 测试项目选择
+      {
+        path: 'test-select',
+        name: 'test-select',
+        component: () => import('@/views/test-mode/select'),
+        meta: ['测试项目选择']
       }
     ]
   },

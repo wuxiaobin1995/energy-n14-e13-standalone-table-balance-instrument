@@ -1,7 +1,7 @@
 <!--
  * @Author      : Mr.bin
  * @Date        : 2022-06-27 10:55:19
- * @LastEditTime: 2022-09-20 11:20:30
+ * @LastEditTime: 2022-12-23 21:25:19
  * @Description : 用户信息修改
 -->
 <template>
@@ -218,9 +218,7 @@ export default {
               this.getUser()
             })
             .catch(() => {
-              this.$router.push({
-                path: '/user'
-              })
+              this.handleCancel()
             })
         })
         .finally(() => {
@@ -263,9 +261,7 @@ export default {
               }
             })
             .then(() => {
-              this.$router.push({
-                path: '/user'
-              })
+              this.handleCancel()
             })
             .catch(() => {
               this.$confirm(`用户信息修改失败，请重试！`, '提示', {
@@ -281,9 +277,7 @@ export default {
                   this.handleEdit()
                 })
                 .catch(() => {
-                  this.$router.push({
-                    path: '/user'
-                  })
+                  this.handleCancel()
                 })
             })
         } else {
@@ -293,7 +287,7 @@ export default {
     },
 
     /**
-     * @description: 取消
+     * @description: 返回上一页
      */
     handleCancel() {
       this.$router.push({

@@ -1,7 +1,7 @@
 <!--
  * @Author      : Mr.bin
  * @Date        : 2022-06-24 09:29:49
- * @LastEditTime: 2022-09-20 11:21:42
+ * @LastEditTime: 2022-12-23 21:27:40
  * @Description : 用户
 -->
 <template>
@@ -191,6 +191,15 @@ export default {
 
   methods: {
     /**
+     * @description: 返回首页
+     */
+    handleToHome() {
+      this.$router.push({
+        path: '/home'
+      })
+    },
+
+    /**
      * @description: 获取所有user信息数据
      */
     getAllUsers() {
@@ -222,15 +231,6 @@ export default {
         .finally(() => {
           this.loading = false
         })
-    },
-
-    /**
-     * @description: 返回首页
-     */
-    handleToHome() {
-      this.$router.push({
-        path: '/home'
-      })
     },
 
     /**
@@ -384,9 +384,7 @@ export default {
               })
             })
             .then(() => {
-              this.$router.push({
-                path: '/home'
-              })
+              this.handleToHome()
             })
         })
     },
@@ -428,7 +426,7 @@ export default {
               header: tHeader, // 表头 必填
               data: exportData, // 具体数据 必填
               filename:
-                '下肢蹬伸肌力检测软件-单机版-所有用户信息 ' +
+                '台式平衡训练软件-单机版-所有用户信息 ' +
                 this.$moment().format('YYYY-MM-DD HH_mm_ss'), // 导出文件名，非必填
               autoWidth: true, // 自适应列宽，非必填
               bookType: 'xlsx' // 导出格式，非必填
@@ -496,8 +494,8 @@ export default {
   @include flex(row, center, center);
 
   .wrapper {
-    width: 86%;
-    height: 90%;
+    width: 96%;
+    height: 94%;
     border-radius: 34px;
     background-color: #ffffff;
     box-shadow: 0 0 10px #929292;

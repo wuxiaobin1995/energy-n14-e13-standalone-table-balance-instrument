@@ -1,7 +1,7 @@
 <!--
  * @Author      : Mr.bin
  * @Date        : 2022-06-24 14:04:47
- * @LastEditTime: 2022-09-20 11:18:41
+ * @LastEditTime: 2022-12-23 21:27:06
  * @Description : 添加用户
 -->
 <template>
@@ -201,7 +201,7 @@ export default {
               })
             })
             .then(() => {
-              this.$router.push({ path: '/user' })
+              this.handleCancel()
             })
             .catch(() => {
               this.$message({
@@ -217,7 +217,7 @@ export default {
     },
 
     /**
-     * @description: 取消
+     * @description: 返回上一页
      */
     handleCancel() {
       this.$router.push({
