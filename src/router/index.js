@@ -1,7 +1,7 @@
 /*
  * @Author      : Mr.bin
  * @Date        : 2022-04-22 09:49:03
- * @LastEditTime: 2022-12-23 21:47:33
+ * @LastEditTime: 2022-12-24 17:54:17
  * @Description : 路由
  */
 import Vue from 'vue'
@@ -92,6 +92,51 @@ const routes = [
         name: 'test-select',
         component: () => import('@/views/test-mode/select'),
         meta: ['测试项目选择']
+      },
+      // 平衡能力测试-描述
+      {
+        path: 'test-balance-ability-desc',
+        name: 'test-balance-ability-desc',
+        component: () => import('@/views/test-mode/balance-ability/desc'),
+        meta: ['平衡能力测试-描述']
+      },
+      // 平衡能力测试-介绍1
+      {
+        path: 'test-balance-ability-introduce-1',
+        name: 'test-balance-ability-introduce-1',
+        component: () =>
+          import('@/views/test-mode/balance-ability/introduce-1'),
+        meta: ['平衡能力测试-介绍1']
+      },
+      // 平衡能力测试-介绍2
+      {
+        path: 'test-balance-ability-introduce-2',
+        name: 'test-balance-ability-introduce-2',
+        component: () =>
+          import('@/views/test-mode/balance-ability/introduce-2'),
+        meta: ['平衡能力测试-介绍2']
+      },
+      // 平衡能力测试-具体测量
+      {
+        path: 'test-balance-ability-measure',
+        name: 'test-balance-ability-measure',
+        component: () => import('@/views/test-mode/balance-ability/measure'),
+        meta: ['平衡能力测试-具体测量']
+      },
+      // 平衡能力测试-动作介绍（共16个）
+      {
+        path: 'test-show-left-1',
+        name: 'test-show-left-1',
+        component: () =>
+          import('@/views/test-mode/balance-ability/show/left-1'),
+        meta: ['一档睁眼直立-左腿']
+      },
+      {
+        path: 'test-show-right-1',
+        name: 'test-show-right-1',
+        component: () =>
+          import('@/views/test-mode/balance-ability/show/right-1'),
+        meta: ['一档睁眼直立-右腿']
       }
     ]
   },

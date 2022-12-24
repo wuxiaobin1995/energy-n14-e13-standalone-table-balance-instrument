@@ -1,7 +1,7 @@
 <!--
  * @Author      : Mr.bin
  * @Date        : 2022-12-23 21:47:05
- * @LastEditTime: 2022-12-23 21:58:44
+ * @LastEditTime: 2022-12-24 17:42:41
  * @Description : 测试项目选择
 -->
 <template>
@@ -16,9 +16,35 @@
 
       <!-- 测试项目 -->
       <div class="select">
-        <div class="select-item">平衡能力测试</div>
-        <div class="select-item">静态稳定测试</div>
-        <div class="select-item">动态稳定测试</div>
+        <div class="select-item">
+          <el-image
+            class="img"
+            :src="img1"
+            fit="scale-down"
+            @click.native="handleBalanceAbility"
+          ></el-image>
+          <div class="text">平衡能力测试</div>
+        </div>
+
+        <div class="select-item">
+          <el-image
+            class="img"
+            :src="img2"
+            fit="scale-down"
+            @click.native="handleStaticStability"
+          ></el-image>
+          <div class="text">静态稳定测试</div>
+        </div>
+
+        <div class="select-item">
+          <el-image
+            class="img"
+            :src="img3"
+            fit="scale-down"
+            @click.native="handleDynamicStability"
+          ></el-image>
+          <div class="text">动态稳定测试</div>
+        </div>
       </div>
     </div>
   </div>
@@ -29,10 +55,41 @@ export default {
   name: 'test-select',
 
   data() {
-    return {}
+    return {
+      img1: require('@/assets/img/Test/Select/平衡能力测试.png'),
+      img2: require('@/assets/img/Test/Select/静态稳定测试.png'),
+      img3: require('@/assets/img/Test/Select/动态稳定测试.png')
+    }
   },
 
   methods: {
+    /**
+     * @description: 前往平衡能力测试
+     */
+    handleBalanceAbility() {
+      this.$router.push({
+        path: '/test-balance-ability-desc'
+      })
+    },
+
+    /**
+     * @description: 前往静态稳定测试
+     */
+    handleStaticStability() {
+      this.$router.push({
+        path: '/test-static-stability-desc'
+      })
+    },
+
+    /**
+     * @description: 前往动态稳定测试
+     */
+    handleDynamicStability() {
+      this.$router.push({
+        path: '/test-dynamic-stability-desc'
+      })
+    },
+
     /**
      * @description: 回到首页
      */
@@ -70,10 +127,20 @@ export default {
     /* 测试项目 */
     .select {
       flex: 1;
-      margin: 40px 0 20px 0;
-      @include flex(row, space-around, stretch);
+      @include flex(row, space-around, center);
       .select-item {
-        @include flex(row, center, center);
+        @include flex(column, center, center);
+        .img {
+          transform: scale(1.2);
+          box-shadow: 0 0 8px #1fc047;
+          padding: 5px;
+        }
+        .text {
+          color: green;
+          margin-top: 35px;
+          font-size: 30px;
+          font-weight: 700;
+        }
       }
     }
   }
