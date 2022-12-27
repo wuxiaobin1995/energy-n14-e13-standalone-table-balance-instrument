@@ -1,7 +1,7 @@
 <!--
  * @Author      : Mr.bin
  * @Date        : 2022-12-24 11:27:50
- * @LastEditTime: 2022-12-24 17:53:48
+ * @LastEditTime: 2022-12-27 14:51:51
  * @Description : 平衡能力测试-描述
 -->
 <template>
@@ -80,6 +80,28 @@ export default {
     }
   },
 
+  created() {
+    // 初始化平衡能力测试的最终结果
+    this.$store.dispatch('changeBalanceAbilityResult', {
+      l1: null, // 一档睁眼直立，左腿（动作1）
+      r1: null, // 一档睁眼直立，右腿（动作1）
+      l2: null, // 一档睁眼屈膝，左腿（动作2）
+      r2: null, // 一档睁眼屈膝，右腿（动作2）
+      l3: null, // 二档睁眼直立，左腿（动作3）
+      r3: null, // 二档睁眼直立，右腿（动作3）
+      l4: null, // 二档睁眼屈膝，左腿（动作4）
+      r4: null, // 二档睁眼屈膝，右腿（动作4）
+      l5: null, // 一档闭眼直立，左腿（动作5）
+      r5: null, // 一档闭眼直立，右腿（动作5）
+      l6: null, // 一档闭眼屈膝，左腿（动作6）
+      r6: null, // 一档闭眼屈膝，右腿（动作6）
+      l7: null, // 二档闭眼直立，左腿（动作7）
+      r7: null, // 二档闭眼直立，右腿（动作7）
+      l8: null, // 二档闭眼屈膝，左腿（动作8）
+      r8: null // 二档闭眼屈膝，右腿（动作8）
+    })
+  },
+
   methods: {
     /**
      * @description: 开始测试
@@ -149,7 +171,7 @@ export default {
       }
       .right {
         .img {
-          width: 90%;
+          width: 85%;
         }
       }
     }
@@ -161,6 +183,7 @@ export default {
 
     .btn {
       @include flex(row, space-around, center);
+      margin-top: 10px;
       .item {
         font-size: 28px;
         width: 250px;
