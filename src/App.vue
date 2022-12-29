@@ -1,7 +1,7 @@
 <!--
  * @Author      : Mr.bin
  * @Date        : 2022-04-22 09:49:03
- * @LastEditTime: 2022-09-20 11:01:42
+ * @LastEditTime: 2022-12-28 15:24:00
  * @Description : 根组件
 -->
 <template>
@@ -35,6 +35,10 @@ export default {
     /* 初始化医院名称 */
     if (!window.localStorage.getItem('hospital')) {
       window.localStorage.setItem('hospital', '')
+    }
+    /* 初始化边界运动距离，默认80mm */
+    if (!window.localStorage.getItem('maxAction')) {
+      window.localStorage.setItem('maxAction', 80)
     }
 
     this.initSerialPort()

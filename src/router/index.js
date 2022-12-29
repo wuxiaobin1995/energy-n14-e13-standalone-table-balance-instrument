@@ -1,7 +1,7 @@
 /*
  * @Author      : Mr.bin
  * @Date        : 2022-04-22 09:49:03
- * @LastEditTime: 2022-12-24 17:54:17
+ * @LastEditTime: 2022-12-28 16:49:32
  * @Description : 路由
  */
 import Vue from 'vue'
@@ -137,6 +137,104 @@ const routes = [
         component: () =>
           import('@/views/test-mode/balance-ability/show/right-1'),
         meta: ['一档睁眼直立-右腿']
+      },
+      {
+        path: 'test-show-left-2',
+        name: 'test-show-left-2',
+        component: () =>
+          import('@/views/test-mode/balance-ability/show/left-2'),
+        meta: ['一档睁眼屈膝-左腿']
+      },
+      {
+        path: 'test-show-right-2',
+        name: 'test-show-right-2',
+        component: () =>
+          import('@/views/test-mode/balance-ability/show/right-2'),
+        meta: ['一档睁眼屈膝-右腿']
+      },
+      {
+        path: 'test-show-left-3',
+        name: 'test-show-left-3',
+        component: () =>
+          import('@/views/test-mode/balance-ability/show/left-3'),
+        meta: ['二档睁眼直立-左腿']
+      },
+      {
+        path: 'test-show-right-3',
+        name: 'test-show-right-3',
+        component: () =>
+          import('@/views/test-mode/balance-ability/show/right-3'),
+        meta: ['二档睁眼直立-右腿']
+      },
+      {
+        path: 'test-show-left-4',
+        name: 'test-show-left-4',
+        component: () =>
+          import('@/views/test-mode/balance-ability/show/left-4'),
+        meta: ['二档睁眼屈膝-左腿']
+      },
+      {
+        path: 'test-show-right-4',
+        name: 'test-show-right-4',
+        component: () =>
+          import('@/views/test-mode/balance-ability/show/right-4'),
+        meta: ['二档睁眼屈膝-右腿']
+      },
+      {
+        path: 'test-show-left-5',
+        name: 'test-show-left-5',
+        component: () =>
+          import('@/views/test-mode/balance-ability/show/left-5'),
+        meta: ['一档闭眼直立-左腿']
+      },
+      {
+        path: 'test-show-right-5',
+        name: 'test-show-right-5',
+        component: () =>
+          import('@/views/test-mode/balance-ability/show/right-5'),
+        meta: ['一档闭眼直立-右腿']
+      },
+      {
+        path: 'test-show-left-6',
+        name: 'test-show-left-6',
+        component: () =>
+          import('@/views/test-mode/balance-ability/show/left-6'),
+        meta: ['一档闭眼屈膝-左腿']
+      },
+      {
+        path: 'test-show-right-6',
+        name: 'test-show-right-6',
+        component: () =>
+          import('@/views/test-mode/balance-ability/show/right-6'),
+        meta: ['一档闭眼屈膝-右腿']
+      },
+      {
+        path: 'test-show-left-7',
+        name: 'test-show-left-7',
+        component: () =>
+          import('@/views/test-mode/balance-ability/show/left-7'),
+        meta: ['二档闭眼直立-左腿']
+      },
+      {
+        path: 'test-show-right-7',
+        name: 'test-show-right-7',
+        component: () =>
+          import('@/views/test-mode/balance-ability/show/right-7'),
+        meta: ['二档闭眼直立-右腿']
+      },
+      {
+        path: 'test-show-left-8',
+        name: 'test-show-left-8',
+        component: () =>
+          import('@/views/test-mode/balance-ability/show/left-8'),
+        meta: ['二档闭眼屈膝-左腿']
+      },
+      {
+        path: 'test-show-right-8',
+        name: 'test-show-right-8',
+        component: () =>
+          import('@/views/test-mode/balance-ability/show/right-8'),
+        meta: ['二档闭眼屈膝-右腿']
       }
     ]
   },

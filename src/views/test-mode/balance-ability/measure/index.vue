@@ -1,7 +1,7 @@
 <!--
  * @Author      : Mr.bin
  * @Date        : 2022-12-24 17:40:53
- * @LastEditTime: 2022-12-27 17:42:28
+ * @LastEditTime: 2022-12-28 17:05:03
  * @Description : 平衡能力测试-具体测量
 -->
 <template>
@@ -54,7 +54,7 @@ export default {
   data() {
     return {
       /* 路由传参 */
-      routerName: JSON.parse(this.$route.query.routerName),
+      showName: JSON.parse(this.$route.query.showName),
       nextRouterName: JSON.parse(this.$route.query.nextRouterName),
 
       /* 图形相关变量 */
@@ -74,7 +74,7 @@ export default {
   },
 
   watch: {
-    routerName: {
+    showName: {
       handler(newValue, oldValue) {
         switch (newValue) {
           case 'test-show-left-1':
@@ -83,6 +83,111 @@ export default {
             this.leg = '左腿'
             this.text =
               '平稳站立在训练台中心上，睁眼，双手叉腰至髂脊，保持平衡10秒。'
+            break
+          case 'test-show-right-1':
+            this.type1 = '一档睁眼直立'
+            this.type2 = '(晃动系数: 1档)'
+            this.leg = '右腿'
+            this.text =
+              '平稳站立在训练台中心上，睁眼，双手叉腰至髂脊，保持平衡10秒。'
+            break
+          case 'test-show-left-2':
+            this.type1 = '一档睁眼屈膝'
+            this.type2 = '(晃动系数: 1档)'
+            this.leg = '左腿'
+            this.text =
+              '平稳站立在训练台中心上，膝关节屈曲30°，睁眼，双手叉腰至髂脊，保持平衡10秒。'
+            break
+          case 'test-show-right-2':
+            this.type1 = '一档睁眼屈膝'
+            this.type2 = '(晃动系数: 1档)'
+            this.leg = '右腿'
+            this.text =
+              '平稳站立在训练台中心上，膝关节屈曲30°，睁眼，双手叉腰至髂脊，保持平衡10秒。'
+            break
+          case 'test-show-left-3':
+            this.type1 = '二档睁眼直立'
+            this.type2 = '(晃动系数: 2档)'
+            this.leg = '左腿'
+            this.text =
+              '平稳站立在训练台中心上，睁眼，双手叉腰至髂脊，保持平衡10秒。'
+            break
+          case 'test-show-right-3':
+            this.type1 = '二档睁眼直立'
+            this.type2 = '(晃动系数: 2档)'
+            this.leg = '右腿'
+            this.text =
+              '平稳站立在训练台中心上，睁眼，双手叉腰至髂脊，保持平衡10秒。'
+            break
+          case 'test-show-left-4':
+            this.type1 = '二档睁眼屈膝'
+            this.type2 = '(晃动系数: 2档)'
+            this.leg = '左腿'
+            this.text =
+              '平稳站立在训练台中心上，膝关节屈曲30°，睁眼，双手叉腰至髂脊，保持平衡10秒。'
+            break
+          case 'test-show-right-4':
+            this.type1 = '二档睁眼屈膝'
+            this.type2 = '(晃动系数: 2档)'
+            this.leg = '右腿'
+            this.text =
+              '平稳站立在训练台中心上，膝关节屈曲30°，睁眼，双手叉腰至髂脊，保持平衡10秒。'
+            break
+          case 'test-show-left-5':
+            this.type1 = '一档闭眼直立'
+            this.type2 = '(晃动系数: 1档)'
+            this.leg = '左腿'
+            this.text =
+              '平稳站立在训练台中心上，闭眼，双手叉腰至髂脊，保持平衡10秒。'
+            break
+          case 'test-show-right-5':
+            this.type1 = '一档闭眼直立'
+            this.type2 = '(晃动系数: 1档)'
+            this.leg = '右腿'
+            this.text =
+              '平稳站立在训练台中心上，闭眼，双手叉腰至髂脊，保持平衡10秒。'
+            break
+          case 'test-show-left-6':
+            this.type1 = '一档闭眼屈膝'
+            this.type2 = '(晃动系数: 1档)'
+            this.leg = '左腿'
+            this.text =
+              '平稳站立在训练台中心上，膝关节屈曲30°，闭眼，双手叉腰至髂脊，保持平衡10秒。'
+            break
+          case 'test-show-right-6':
+            this.type1 = '一档闭眼屈膝'
+            this.type2 = '(晃动系数: 1档)'
+            this.leg = '右腿'
+            this.text =
+              '平稳站立在训练台中心上，膝关节屈曲30°，闭眼，双手叉腰至髂脊，保持平衡10秒。'
+            break
+          case 'test-show-left-7':
+            this.type1 = '二档闭眼直立'
+            this.type2 = '(晃动系数: 2档)'
+            this.leg = '左腿'
+            this.text =
+              '平稳站立在训练台中心上，闭眼，双手叉腰至髂脊，保持平衡10秒。'
+            break
+          case 'test-show-right-7':
+            this.type1 = '二档闭眼直立'
+            this.type2 = '(晃动系数: 2档)'
+            this.leg = '右腿'
+            this.text =
+              '平稳站立在训练台中心上，闭眼，双手叉腰至髂脊，保持平衡10秒。'
+            break
+          case 'test-show-left-8':
+            this.type1 = '二档闭眼屈膝'
+            this.type2 = '(晃动系数: 2档)'
+            this.leg = '左腿'
+            this.text =
+              '平稳站立在训练台中心上，膝关节屈曲30°，闭眼，双手叉腰至髂脊，保持平衡10秒。'
+            break
+          case 'test-show-right-8':
+            this.type1 = '二档闭眼屈膝'
+            this.type2 = '(晃动系数: 2档)'
+            this.leg = '右腿'
+            this.text =
+              '平稳站立在训练台中心上，膝关节屈曲30°，闭眼，双手叉腰至髂脊，保持平衡10秒。'
             break
           default:
             this.$alert(
@@ -114,9 +219,9 @@ export default {
      */
     initChart() {
       /* 相关计算 */
-      const maxAction = 100
-      const boundary = maxAction + parseInt(maxAction * 0.2) // 边界
+      const maxAction = parseInt(window.localStorage.getItem('maxAction'))
 
+      const boundary = maxAction + parseInt(maxAction * 0.2) // 方形
       const oneR = parseFloat((maxAction * 0.2).toFixed(1)) // 绿色圆半径
       const twoR = parseFloat((maxAction * 0.6).toFixed(1)) // 黄色圆半径
       const threeR = maxAction // 红色圆半径
@@ -243,7 +348,11 @@ export default {
     /**
      * @description: 下一项或者查看报告
      */
-    handleFinish() {}
+    handleFinish() {
+      this.$router.push({
+        path: this.nextRouterName
+      })
+    }
   }
 }
 </script>
@@ -304,12 +413,10 @@ export default {
     .right {
       width: 30%;
       @include flex(column, space-between, center);
-      .count-down {
-        // margin-bottom: 50px;
-      }
-      .result {
-        // margin-bottom: 50px;
-      }
+      // .count-down {
+      // }
+      // .result {
+      // }
       .btn {
         @include flex(column, center, center);
         .item {

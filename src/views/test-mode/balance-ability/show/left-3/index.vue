@@ -1,8 +1,8 @@
 <!--
  * @Author      : Mr.bin
  * @Date        : 2022-12-24 17:52:20
- * @LastEditTime: 2022-12-28 16:33:00
- * @Description : 一档睁眼直立-左腿
+ * @LastEditTime: 2022-12-28 16:51:00
+ * @Description : 二档睁眼直立-左腿
 -->
 <template>
   <div class="test-show">
@@ -10,8 +10,8 @@
       <div class="left">
         <div class="title">平衡能力测试</div>
         <div class="type">
-          <span class="type__item-1">一档睁眼直立</span>
-          <span class="type__item-2">(晃动系数: 1档)</span>
+          <span class="type__item-1">二档睁眼直立</span>
+          <span class="type__item-2">(晃动系数: 2档)</span>
         </div>
         <div class="text">
           <span class="leg">左脚</span
@@ -45,7 +45,7 @@
 import { setCircle } from '@/utils/setCircle.js'
 
 export default {
-  name: 'test-show-left-1',
+  name: 'test-show-left-3',
 
   data() {
     return {
@@ -181,8 +181,8 @@ export default {
       this.$router.push({
         path: '/test-balance-ability-measure',
         query: {
-          showName: JSON.stringify('test-show-left-1'),
-          nextRouterName: JSON.stringify('/test-show-right-1')
+          showName: JSON.stringify('test-show-left-3'),
+          nextRouterName: JSON.stringify('/test-show-right-3')
         }
       })
     }

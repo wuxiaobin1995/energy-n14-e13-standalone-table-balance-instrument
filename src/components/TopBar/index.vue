@@ -1,7 +1,7 @@
 <!--
  * @Author      : Mr.bin
  * @Date        : 2022-09-15 16:09:19
- * @LastEditTime: 2022-12-16 10:27:46
+ * @LastEditTime: 2022-12-28 15:54:55
  * @Description : 顶部栏
 -->
 <template>
@@ -14,7 +14,7 @@
         fit="scale-down"
         @click.native="handleToHome"
       ></el-image>
-      <span class="text">台式平衡训练软件-单机版 v2.0.0</span>
+      <span class="text">台式平衡训练系统-单机版 v2.0.0</span>
     </div>
 
     <!-- 其他 -->
