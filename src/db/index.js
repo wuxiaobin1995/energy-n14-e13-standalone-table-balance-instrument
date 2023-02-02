@@ -1,7 +1,7 @@
 /*
  * @Author      : Mr.bin
  * @Date        : 2022-04-22 10:05:30
- * @LastEditTime: 2022-09-15 16:11:16
+ * @LastEditTime: 2023-02-02 15:48:38
  * @Description : Dexie
  */
 import Dexie from 'dexie'
@@ -13,7 +13,7 @@ export function initDB() {
     test_data:
       '++,userId,pdfTime,type,[userId+type],[userId+pdfTime],[userId+type+pdfTime]',
     train_data:
-      '++,userId,pdfTime,type,[userId+type],[userId+pdfTime],[userId+type+pdfTime]'
+      '++,userId,pdfTime,type,posture,[userId+type],[userId+pdfTime],[userId+type+pdfTime]'
   })
   return db
 }

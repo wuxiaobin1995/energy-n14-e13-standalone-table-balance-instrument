@@ -1,7 +1,7 @@
 /*
  * @Author      : Mr.bin
  * @Date        : 2022-04-22 09:49:03
- * @LastEditTime: 2022-12-28 16:49:32
+ * @LastEditTime: 2023-02-02 20:09:44
  * @Description : 路由
  */
 import Vue from 'vue'
@@ -235,8 +235,132 @@ const routes = [
         component: () =>
           import('@/views/test-mode/balance-ability/show/right-8'),
         meta: ['二档闭眼屈膝-右腿']
+      },
+
+      // 静态稳定测试-描述
+      {
+        path: 'test-static-stability-desc',
+        name: 'test-static-stability-desc',
+        component: () => import('@/views/test-mode/static-stability/desc'),
+        meta: ['静态稳定测试-描述']
+      },
+      // 静态稳定测试-具体测量
+      {
+        path: 'test-static-stability-measure',
+        name: 'test-static-stability-measure',
+        component: () => import('@/views/test-mode/static-stability/measure'),
+        meta: ['静态稳定测试-具体测量']
+      },
+      // 动态稳定测试-描述
+      {
+        path: 'test-dynamic-stability-desc',
+        name: 'test-dynamic-stability-desc',
+        component: () => import('@/views/test-mode/dynamic-stability/desc'),
+        meta: ['动态稳定测试-描述']
+      },
+      // 动态稳定测试-具体测量
+      {
+        path: 'test-dynamic-stability-measure',
+        name: 'test-dynamic-stability-measure',
+        component: () => import('@/views/test-mode/dynamic-stability/measure'),
+        meta: ['动态稳定测试-具体测量']
+      },
+
+      /* 训练模块 */
+      // 训练项目选择
+      {
+        path: 'train-select',
+        name: 'train-select',
+        component: () => import('@/views/train-mode/select'),
+        meta: ['训练项目选择']
+      },
+      // 静态平衡训练-描述
+      {
+        path: 'train-static-equilibrium-desc',
+        name: 'train-static-equilibrium-desc',
+        component: () => import('@/views/train-mode/static-equilibrium/desc'),
+        meta: ['静态平衡训练-描述']
+      },
+      // 静态平衡训练-具体测量
+      {
+        path: 'train-static-equilibrium-measure',
+        name: 'train-static-equilibrium-measure',
+        component: () =>
+          import('@/views/train-mode/static-equilibrium/measure'),
+        meta: ['静态平衡训练-具体测量']
+      },
+      // // 动态平衡训练-描述
+      // {
+      //   path: 'train-dynamic-equilibrium-desc',
+      //   name: 'train-dynamic-equilibrium-desc',
+      //   component: () => import('@/views/train-mode/dynamic-equilibrium/desc'),
+      //   meta: ['动态平衡训练-描述']
+      // },
+      // // 动态平衡训练-具体测量
+      // {
+      //   path: 'train-dynamic-equilibrium-measure',
+      //   name: 'train-dynamic-equilibrium-measure',
+      //   component: () =>
+      //     import('@/views/train-mode/dynamic-equilibrium/measure'),
+      //   meta: ['动态平衡训练-具体测量']
+      // },
+
+      /* 数据记录 */
+      // 测试
+      {
+        path: 'test-record',
+        name: 'test-record',
+        component: () => import('@/views/record/test'),
+        meta: ['测试-数据记录'],
+        redirect: '/test-record/balance-ability',
+        children: [
+          // 平衡能力测试
+          {
+            path: 'balance-ability',
+            name: 'balance-ability',
+            component: () => import('@/views/record/test/balance-ability'),
+            meta: ['平衡能力测试']
+          },
+          // 静态稳定测试
+          {
+            path: 'static-stability',
+            name: 'static-stability',
+            component: () => import('@/views/record/test/static-stability'),
+            meta: ['静态稳定测试']
+          },
+          // 动态稳定测试
+          {
+            path: 'dynamic-stability',
+            name: 'dynamic-stability',
+            component: () => import('@/views/record/test/dynamic-stability'),
+            meta: ['动态稳定测试']
+          }
+        ]
       }
     ]
+  },
+
+  /* 测试报告 */
+  // 平衡能力测试PDF
+  {
+    path: '/test-balance-ability-pdf',
+    name: 'test-balance-ability-pdf',
+    component: () => import('@/views/test-mode/balance-ability/pdf'),
+    meta: ['平衡能力测试-PDF']
+  },
+  // 静态稳定测试PDF
+  {
+    path: '/test-static-stability-pdf',
+    name: 'test-static-stability-pdf',
+    component: () => import('@/views/test-mode/static-stability/pdf'),
+    meta: ['静态稳定测试-PDF']
+  },
+  // 动态稳定测试PDF
+  {
+    path: '/test-dynamic-stability-pdf',
+    name: 'test-dynamic-stability-pdf',
+    component: () => import('@/views/test-mode/dynamic-stability/pdf'),
+    meta: ['动态稳定测试-PDF']
   },
 
   {
