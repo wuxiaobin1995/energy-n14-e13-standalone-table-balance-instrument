@@ -2,16 +2,16 @@
  * @Author      : Mr.bin
  * @Date        : 2023-02-02 20:10:00
  * @LastEditTime: 2023-02-03 14:55:50
- * @Description : 静态平衡训练-具体测量
+ * @Description : 动态平衡训练-具体测量
 -->
 <template>
-  <div class="train-static-equilibrium-measure">
+  <div class="train-dynamic-equilibrium-measure">
     <div class="wrapper">
       <div class="main">
         <div class="left">
-          <div class="title">静态平衡训练</div>
+          <div class="title">动态平衡训练</div>
           <div class="text">
-            请双腿平稳站立在平台中心上，保持指定的动作，并维持重心在绿圈范围内。
+            请双腿平稳站立在平台中心上，进行指定的训练动作，并维持重心在绿圈范围内，控制训练节奏在2-0-2。
           </div>
         </div>
 
@@ -85,7 +85,7 @@ import { initDB } from '@/db/index.js'
 import { setCircle } from '@/utils/setCircle.js'
 
 export default {
-  name: 'train-static-equilibrium-measure',
+  name: 'train-dynamic-equilibrium-measure',
 
   data() {
     return {
@@ -97,7 +97,7 @@ export default {
       restTime: JSON.parse(this.$route.query.restTime),
       routerName: JSON.parse(this.$route.query.routerName),
 
-      timeBgSrc: require('@/assets/img/Train/Static_Equilibrium/Measure/倒计时背景.png'), // 倒计时背景
+      timeBgSrc: require('@/assets/img/Train/Dynamic_Equilibrium/Measure/倒计时背景.png'), // 倒计时背景
 
       /* 控制相关 */
       isStart: false,
@@ -486,7 +486,7 @@ export default {
           num: this.num, // 训练组数
           time: this.time, // 测量时长
           restTime: this.restTime, // 休息时长
-          type: '静态平衡训练'
+          type: '动态平衡训练'
         })
         .then(() => {
           this.isPdf = true
@@ -514,11 +514,11 @@ export default {
      */
     handlePdf() {
       this.$router.push({
-        path: '/train-static-equilibrium-pdf',
+        path: '/train-dynamic-equilibrium-pdf',
         query: {
           userId: JSON.stringify(this.$store.state.currentUserInfo.userId),
           pdfTime: JSON.stringify(this.pdfTime),
-          routerName: JSON.stringify('/train-static-equilibrium-desc')
+          routerName: JSON.stringify('/train-dynamic-equilibrium-desc')
         }
       })
     },
@@ -528,7 +528,7 @@ export default {
      */
     handleGoBack() {
       this.$router.push({
-        path: '/train-static-equilibrium-desc'
+        path: '/train-dynamic-equilibrium-desc'
       })
     }
   }
@@ -536,7 +536,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.train-static-equilibrium-measure {
+.train-dynamic-equilibrium-measure {
   width: 100%;
   height: 100%;
   @include flex(row, center, center);

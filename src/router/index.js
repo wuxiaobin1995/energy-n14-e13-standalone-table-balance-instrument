@@ -1,7 +1,7 @@
 /*
  * @Author      : Mr.bin
  * @Date        : 2022-04-22 09:49:03
- * @LastEditTime: 2023-02-02 20:09:44
+ * @LastEditTime: 2023-02-03 16:04:15
  * @Description : 路由
  */
 import Vue from 'vue'
@@ -289,21 +289,21 @@ const routes = [
           import('@/views/train-mode/static-equilibrium/measure'),
         meta: ['静态平衡训练-具体测量']
       },
-      // // 动态平衡训练-描述
-      // {
-      //   path: 'train-dynamic-equilibrium-desc',
-      //   name: 'train-dynamic-equilibrium-desc',
-      //   component: () => import('@/views/train-mode/dynamic-equilibrium/desc'),
-      //   meta: ['动态平衡训练-描述']
-      // },
-      // // 动态平衡训练-具体测量
-      // {
-      //   path: 'train-dynamic-equilibrium-measure',
-      //   name: 'train-dynamic-equilibrium-measure',
-      //   component: () =>
-      //     import('@/views/train-mode/dynamic-equilibrium/measure'),
-      //   meta: ['动态平衡训练-具体测量']
-      // },
+      // 动态平衡训练-描述
+      {
+        path: 'train-dynamic-equilibrium-desc',
+        name: 'train-dynamic-equilibrium-desc',
+        component: () => import('@/views/train-mode/dynamic-equilibrium/desc'),
+        meta: ['动态平衡训练-描述']
+      },
+      // 动态平衡训练-具体测量
+      {
+        path: 'train-dynamic-equilibrium-measure',
+        name: 'train-dynamic-equilibrium-measure',
+        component: () =>
+          import('@/views/train-mode/dynamic-equilibrium/measure'),
+        meta: ['动态平衡训练-具体测量']
+      },
 
       /* 数据记录 */
       // 测试
@@ -336,6 +336,30 @@ const routes = [
             meta: ['动态稳定测试']
           }
         ]
+      },
+      // 训练
+      {
+        path: 'train-record',
+        name: 'train-record',
+        component: () => import('@/views/record/train'),
+        meta: ['训练-数据记录'],
+        redirect: '/train-record/static-equilibrium',
+        children: [
+          // 静态平衡训练
+          {
+            path: 'static-equilibrium',
+            name: 'static-equilibrium',
+            component: () => import('@/views/record/train/static-equilibrium'),
+            meta: ['静态平衡训练']
+          },
+          // 动态平衡训练
+          {
+            path: 'dynamic-equilibrium',
+            name: 'dynamic-equilibrium',
+            component: () => import('@/views/record/train/dynamic-equilibrium'),
+            meta: ['动态平衡训练']
+          }
+        ]
       }
     ]
   },
@@ -361,6 +385,22 @@ const routes = [
     name: 'test-dynamic-stability-pdf',
     component: () => import('@/views/test-mode/dynamic-stability/pdf'),
     meta: ['动态稳定测试-PDF']
+  },
+
+  /* 训练报告 */
+  // 静态平衡训练PDF
+  {
+    path: '/train-static-equilibrium-pdf',
+    name: 'train-static-equilibrium-pdf',
+    component: () => import('@/views/train-mode/static-equilibrium/pdf'),
+    meta: ['静态平衡训练-PDF']
+  },
+  // 动态平衡训练PDF
+  {
+    path: '/train-dynamic-equilibrium-pdf',
+    name: 'train-dynamic-equilibrium-pdf',
+    component: () => import('@/views/train-mode/dynamic-equilibrium/pdf'),
+    meta: ['动态平衡训练-PDF']
   },
 
   {

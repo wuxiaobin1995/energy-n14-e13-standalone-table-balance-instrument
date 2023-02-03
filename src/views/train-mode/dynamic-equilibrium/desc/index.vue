@@ -1,17 +1,17 @@
 <!--
  * @Author      : Mr.bin
  * @Date        : 2023-02-02 15:54:15
- * @LastEditTime: 2023-02-03 09:18:03
- * @Description : 静态平衡训练-描述
+ * @LastEditTime: 2023-02-03 15:41:23
+ * @Description : 动态平衡训练-描述
 -->
 <template>
-  <div class="train-static-equilibrium-desc">
+  <div class="train-dynamic-equilibrium-desc">
     <div class="wrapper">
       <div class="main">
         <div class="left">
-          <div class="title">静态平衡训练</div>
+          <div class="title">动态平衡训练</div>
           <div class="text">
-            请双腿平稳站立在平台中心上，保持指定的动作，并维持重心在绿圈范围内。
+            请双腿平稳站立在平台中心上，进行指定的训练动作，并维持重心在绿圈范围内，控制训练节奏在2-0-2。
           </div>
         </div>
 
@@ -93,31 +93,22 @@
 
 <script>
 export default {
-  name: 'train-static-equilibrium-desc',
+  name: 'train-dynamic-equilibrium-desc',
 
   data() {
     return {
-      showImg: require('@/assets/img/Train/Static_Equilibrium/Desc/图形示意图.png'),
+      showImg: require('@/assets/img/Train/Dynamic_Equilibrium/Desc/图形示意图.png'),
 
-      trainPosture: '双脚平行站立', // 训练姿势
+      trainPosture: '双脚下蹲', // 训练姿势
       optionsTrainPosture: [
         {
-          value: '双脚平行站立'
+          value: '双脚下蹲'
         },
         {
-          value: '双脚并拢站立'
+          value: '弓步下蹲'
         },
         {
-          value: '双脚串联步站立'
-        },
-        {
-          value: '单腿站立'
-        },
-        {
-          value: '双脚静蹲'
-        },
-        {
-          value: '单脚静蹲'
+          value: '单脚下蹲'
         }
       ],
 
@@ -148,14 +139,14 @@ export default {
      */
     handleStart() {
       this.$router.push({
-        path: '/train-static-equilibrium-measure',
+        path: '/train-dynamic-equilibrium-measure',
         query: {
           trainPosture: JSON.stringify(this.trainPosture),
           coefficient: JSON.stringify(this.coefficient),
           num: JSON.stringify(this.num),
           time: JSON.stringify(this.time),
           restTime: JSON.stringify(this.restTime),
-          routerName: JSON.stringify('/train-static-equilibrium-desc')
+          routerName: JSON.stringify('/train-dynamic-equilibrium-desc')
         }
       })
     },
@@ -173,7 +164,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.train-static-equilibrium-desc {
+.train-dynamic-equilibrium-desc {
   width: 100%;
   height: 100%;
   @include flex(row, center, center);
