@@ -1,7 +1,7 @@
 <!--
  * @Author      : Mr.bin
  * @Date        : 2023-02-02 16:30:02
- * @LastEditTime: 2023-02-02 17:31:48
+ * @LastEditTime: 2023-02-03 17:04:19
  * @Description : 静态稳定测试-具体测量
 -->
 <template>
@@ -490,8 +490,8 @@ export default {
         flex: 1;
         @include flex(row, center, center);
         .chart {
-          width: 580px;
-          height: 600px;
+          width: 530px;
+          height: 550px;
         }
       }
 

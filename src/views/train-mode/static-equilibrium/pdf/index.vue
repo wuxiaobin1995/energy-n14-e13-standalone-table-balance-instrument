@@ -1,7 +1,7 @@
 <!--
  * @Author      : Mr.bin
  * @Date        : 2023-02-03 15:07:42
- * @LastEditTime: 2023-02-03 15:26:15
+ * @LastEditTime: 2023-02-03 17:10:23
  * @Description : 静态平衡训练-PDF
 -->
 <template>
@@ -32,8 +32,7 @@
       <div class="content">
         <div class="left">
           <div class="result">
-            完成度：<span class="value">{{ greenRate }}</span
-            > %
+            完成度：<span class="value">{{ greenRate }}</span> %
           </div>
           <div class="posture">
             训练姿势：<span class="value">{{ pdfData.posture }}</span>
@@ -42,16 +41,13 @@
             晃动系数：<span class="value">{{ pdfData.coefficient }}</span>
           </div>
           <div class="num">
-            训练组数：<span class="value">{{ pdfData.num }}</span
-            > 组
+            训练组数：<span class="value">{{ pdfData.num }}</span> 组
           </div>
           <div class="time">
-            训练时长：<span class="value">{{ pdfData.time }}</span
-            > s
+            训练时长：<span class="value">{{ pdfData.time }}</span> s
           </div>
           <div class="restTime">
-            休息时长：<span class="value">{{ pdfData.restTime }}</span
-            > s
+            休息时长：<span class="value">{{ pdfData.restTime }}</span> s
           </div>
         </div>
 
@@ -455,8 +451,8 @@ export default {
         flex: 1;
         @include flex(row, center, center);
         .chart {
-          width: 580px;
-          height: 600px;
+          width: 530px;
+          height: 550px;
         }
       }
 

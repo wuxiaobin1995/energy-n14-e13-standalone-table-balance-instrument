@@ -1,7 +1,7 @@
 <!--
  * @Author      : Mr.bin
  * @Date        : 2023-02-02 20:10:00
- * @LastEditTime: 2023-02-03 14:55:50
+ * @LastEditTime: 2023-02-03 17:07:38
  * @Description : 静态平衡训练-具体测量
 -->
 <template>
@@ -572,8 +572,8 @@ export default {
         flex: 1;
         @include flex(row, center, center);
         .chart {
-          width: 580px;
-          height: 600px;
+          width: 530px;
+          height: 550px;
         }
       }
 

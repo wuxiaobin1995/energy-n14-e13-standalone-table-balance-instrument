@@ -413,8 +413,8 @@ export default {
         flex: 1;
         @include flex(row, center, center);
         .chart {
-          width: 580px;
-          height: 600px;
+          width: 530px;
+          height: 550px;
         }
       }
 

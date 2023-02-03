@@ -1,7 +1,7 @@
 <!--
  * @Author      : Mr.bin
  * @Date        : 2023-02-02 13:54:59
- * @LastEditTime: 2023-02-02 18:01:51
+ * @LastEditTime: 2023-02-03 17:09:10
  * @Description : 静态稳定测试-PDF
 -->
 <template>
@@ -413,8 +413,8 @@ export default {
         flex: 1;
         @include flex(row, center, center);
         .chart {
-          width: 580px;
-          height: 600px;
+          width: 530px;
+          height: 550px;
         }
       }
 
