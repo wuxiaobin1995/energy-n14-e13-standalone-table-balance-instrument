@@ -6,6 +6,9 @@
 -->
 <template>
   <div class="train-dynamic-equilibrium-desc">
+    <!-- 语音播放 -->
+    <audio ref="audio" controls="controls" hidden :src="audioSrc" />
+
     <div class="wrapper">
       <div class="main">
         <div class="left">
@@ -92,12 +95,19 @@
 </template>
 
 <script>
+/* 路径模块 */
+import path from 'path'
+
 export default {
   name: 'train-dynamic-equilibrium-desc',
 
   data() {
     return {
       showImg: require('@/assets/img/Train/Dynamic_Equilibrium/Desc/图形示意图.png'),
+
+      /* 语音相关 */
+      audioOpen: this.$store.state.voiceSwitch,
+      audioSrc: path.join(__static, `narrate/mandarin/动态平衡训练.mp3`),
 
       trainPosture: '双脚下蹲', // 训练姿势
       optionsTrainPosture: [
@@ -130,6 +140,15 @@ export default {
       time: 30, // 训练时长，10~120，默认30s
 
       restTime: 30 // 休息时长，5~60，默认30s
+    }
+  },
+
+  mounted() {
+    if (this.audioOpen === true) {
+      setTimeout(() => {
+        this.$refs.audio.currentTime = 0
+        this.$refs.audio.play()
+      }, 500)
     }
   },
 

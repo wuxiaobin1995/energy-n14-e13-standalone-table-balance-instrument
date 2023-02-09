@@ -6,6 +6,9 @@
 -->
 <template>
   <div class="test-dynamic-stability-desc">
+    <!-- 语音播放 -->
+    <audio ref="audio" controls="controls" hidden :src="audioSrc" />
+
     <div class="wrapper">
       <div class="main">
         <div class="left">
@@ -58,12 +61,19 @@
 </template>
 
 <script>
+/* 路径模块 */
+import path from 'path'
+
 export default {
   name: 'test-dynamic-stability-desc',
 
   data() {
     return {
       showImg: require('@/assets/img/Test/Dynamic_Stability/Desc/图形示意图.png'),
+
+      /* 语音相关 */
+      audioOpen: this.$store.state.voiceSwitch,
+      audioSrc: path.join(__static, `narrate/mandarin/动态稳定测试.mp3`),
 
       time: 20, // 测试时长10~60，默认20s
       options: [
@@ -78,6 +88,15 @@ export default {
         }
       ],
       coefficient: '1' // 晃动系数1、2、3
+    }
+  },
+
+  mounted() {
+    if (this.audioOpen === true) {
+      setTimeout(() => {
+        this.$refs.audio.currentTime = 0
+        this.$refs.audio.play()
+      }, 500)
     }
   },
 

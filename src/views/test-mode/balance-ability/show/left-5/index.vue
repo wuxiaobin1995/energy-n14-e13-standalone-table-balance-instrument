@@ -6,6 +6,9 @@
 -->
 <template>
   <div class="test-show">
+    <!-- 语音播放 -->
+    <audio ref="audio" controls="controls" hidden :src="audioSrc" />
+
     <div class="wrapper">
       <div class="left">
         <div class="title">平衡能力测试</div>
@@ -41,6 +44,9 @@
 </template>
 
 <script>
+/* 路径模块 */
+import path from 'path'
+
 /* 计算圆的相关参数 */
 import { setCircle } from '@/utils/setCircle.js'
 
@@ -49,7 +55,11 @@ export default {
 
   data() {
     return {
-      actionImg: require('@/assets/img/Test/Balance_Ability/Show/参考动作-l1.png'),
+      actionImg: require('@/assets/img/Test/Balance_Ability/Show/l5.png'),
+
+      /* 语音相关 */
+      audioOpen: this.$store.state.voiceSwitch,
+      audioSrc: path.join(__static, `narrate/mandarin/l5.mp3`),
 
       /* 图形相关变量 */
       myChart: null,
@@ -59,6 +69,13 @@ export default {
 
   mounted() {
     this.initChart()
+
+    if (this.audioOpen === true) {
+      setTimeout(() => {
+        this.$refs.audio.currentTime = 0
+        this.$refs.audio.play()
+      }, 500)
+    }
   },
 
   methods: {
