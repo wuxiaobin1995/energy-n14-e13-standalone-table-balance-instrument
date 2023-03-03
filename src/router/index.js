@@ -1,7 +1,7 @@
 /*
  * @Author      : Mr.bin
  * @Date        : 2022-04-22 09:49:03
- * @LastEditTime: 2023-02-03 16:04:15
+ * @LastEditTime: 2023-03-03 11:28:28
  * @Description : 路由
  */
 import Vue from 'vue'
@@ -371,6 +371,14 @@ const routes = [
     name: 'test-balance-ability-pdf',
     component: () => import('@/views/test-mode/balance-ability/pdf'),
     meta: ['平衡能力测试-PDF']
+  },
+  // 平衡能力测试-导出长期趋势PDF
+  {
+    path: '/test-balance-ability-secular-trend-pdf',
+    name: 'test-balance-ability-secular-trend-pdf',
+    component: () =>
+      import('@/views/record/test/balance-ability/secular-trend-pdf'),
+    meta: ['平衡能力测试-导出长期趋势PDF']
   },
   // 静态稳定测试PDF
   {

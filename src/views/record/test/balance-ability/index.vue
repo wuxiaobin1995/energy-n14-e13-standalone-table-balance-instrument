@@ -1,7 +1,7 @@
 <!--
  * @Author      : Mr.bin
  * @Date        : 2023-02-02 18:58:05
- * @LastEditTime: 2023-02-02 19:16:23
+ * @LastEditTime: 2023-03-03 10:57:10
  * @Description : 平衡能力测试-数据记录
 -->
 <template>
@@ -90,9 +90,9 @@
 
     <!-- 长期趋势 -->
     <div class="btn">
-      <!-- <el-button class="item" type="primary" @click="handleTendencyPrint"
+      <el-button class="item" type="primary" @click="handleTendencyPrint"
         >长期趋势报告</el-button
-      > -->
+      >
       <el-button class="item" type="danger" @click="handleRefresh"
         >刷新页面</el-button
       >
@@ -360,14 +360,14 @@ export default {
      * @description: 长期趋势报告
      */
     handleTendencyPrint() {
-      // this.$router.push({
-      //   path: '/test-tendency-print',
-      //   query: {
-      //     userId: JSON.stringify(this.$store.state.currentUserInfo.userId),
-      //     routerName: JSON.stringify('/test-record/balance-ability'),
-      //     type: JSON.stringify('平衡能力测试')
-      //   }
-      // })
+      this.$router.push({
+        path: '/test-balance-ability-secular-trend-pdf',
+        query: {
+          userId: JSON.stringify(this.$store.state.currentUserInfo.userId),
+          routerName: JSON.stringify('/test-record/balance-ability'),
+          type: JSON.stringify('平衡能力测试')
+        }
+      })
     },
 
     /**

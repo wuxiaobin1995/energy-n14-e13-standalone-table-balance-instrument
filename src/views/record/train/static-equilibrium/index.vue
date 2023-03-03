@@ -1,7 +1,7 @@
 <!--
  * @Author      : Mr.bin
  * @Date        : 2023-02-02 18:58:05
- * @LastEditTime: 2023-02-03 16:12:43
+ * @LastEditTime: 2023-03-03 11:34:22
  * @Description : 静态平衡训练-数据记录
 -->
 <template>
@@ -359,14 +359,14 @@ export default {
      * @description: 长期趋势报告
      */
     handleTendencyPrint() {
-      // this.$router.push({
-      //   path: '/train-tendency-print',
-      //   query: {
-      //     userId: JSON.stringify(this.$store.state.currentUserInfo.userId),
-      //     routerName: JSON.stringify('/train-record/static-equilibrium'),
-      //     type: JSON.stringify('静态平衡训练')
-      //   }
-      // })
+      this.$router.push({
+        path: '/train-static-equilibrium-secular-trend-pdf',
+        query: {
+          userId: JSON.stringify(this.$store.state.currentUserInfo.userId),
+          routerName: JSON.stringify('/train-record/static-equilibrium'),
+          type: JSON.stringify('静态平衡训练')
+        }
+      })
     },
 
     /**

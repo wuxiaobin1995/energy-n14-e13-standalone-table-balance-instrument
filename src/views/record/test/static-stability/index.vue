@@ -1,7 +1,7 @@
 <!--
  * @Author      : Mr.bin
  * @Date        : 2023-02-02 18:58:05
- * @LastEditTime: 2023-02-02 19:24:01
+ * @LastEditTime: 2023-03-03 11:38:41
  * @Description : 静态稳定测试-数据记录
 -->
 <template>
@@ -365,14 +365,14 @@ export default {
      * @description: 长期趋势报告
      */
     handleTendencyPrint() {
-      // this.$router.push({
-      //   path: '/test-tendency-print',
-      //   query: {
-      //     userId: JSON.stringify(this.$store.state.currentUserInfo.userId),
-      //     routerName: JSON.stringify('/test-record/static-stability'),
-      //     type: JSON.stringify('静态稳定测试')
-      //   }
-      // })
+      this.$router.push({
+        path: '/test-static-stability-secular-trend-pdf',
+        query: {
+          userId: JSON.stringify(this.$store.state.currentUserInfo.userId),
+          routerName: JSON.stringify('/test-record/static-stability'),
+          type: JSON.stringify('静态稳定测试')
+        }
+      })
     },
 
     /**
