@@ -1,7 +1,7 @@
 <!--
  * @Author      : Mr.bin
  * @Date        : 2022-04-22 09:49:03
- * @LastEditTime: 2023-02-02 10:08:18
+ * @LastEditTime: 2023-03-14 15:20:45
  * @Description : 根组件
 -->
 <template>
@@ -36,9 +36,9 @@ export default {
     if (!window.localStorage.getItem('hospital')) {
       window.localStorage.setItem('hospital', '')
     }
-    /* 初始化边界运动距离，默认单边80mm */
+    /* 初始化边界运动距离，x轴单边60mm，y轴单边90mm */
     if (!window.localStorage.getItem('maxAction')) {
-      window.localStorage.setItem('maxAction', 80)
+      window.localStorage.setItem('maxAction', 60)
     }
 
     this.initSerialPort()

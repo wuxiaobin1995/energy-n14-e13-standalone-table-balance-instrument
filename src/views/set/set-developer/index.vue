@@ -1,7 +1,7 @@
 <!--
  * @Author      : Mr.bin
  * @Date        : 2022-06-28 11:13:55
- * @LastEditTime: 2022-12-28 15:24:08
+ * @LastEditTime: 2023-03-14 15:21:21
  * @Description : 开发者
 -->
 <template>
@@ -53,7 +53,7 @@ export default {
   created() {
     this.maxAction = parseInt(window.localStorage.getItem('maxAction'))
       ? parseInt(window.localStorage.getItem('maxAction'))
-      : 80
+      : 60
   },
 
   methods: {
@@ -86,7 +86,7 @@ export default {
      */
     handleMaxActionChange(value) {
       if (!value) {
-        value = 100
+        value = 60
       }
       window.localStorage.setItem('maxAction', value)
       this.$message({
