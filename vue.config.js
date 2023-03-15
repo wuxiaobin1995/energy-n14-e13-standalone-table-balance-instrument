@@ -1,12 +1,12 @@
 /*
  * @Author      : Mr.bin
  * @Date        : 2022-04-22 10:06:36
- * @LastEditTime: 2022-12-28 15:54:39
+ * @LastEditTime: 2023-03-15 15:20:02
  * @Description : vue.config.js
  */
 
 const projectName = 'energy-n14-e13-standalone-table-balance-instrument' // 项目名称，是一个程序的唯一标识符
-const softwareName = '台式平衡训练系统-单机版' // 软件名称
+const softwareName = '台式平衡康复训练仪-单机版' // 软件名称
 
 const logo = './public/ico/logo/medical.ico' // 软件图标（医疗）
 // const logo = './public/ico/logo/power.ico' // 软件图标（运动）

@@ -14,7 +14,7 @@
         fit="scale-down"
         @click.native="handleToHome"
       ></el-image>
-      <span class="text">台式平衡训练系统-单机版 v2.0.0</span>
+      <span class="text">台式平衡康复训练仪-单机版 v2.0.0</span>
     </div>
 
     <!-- 其他 -->

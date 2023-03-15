@@ -5,7 +5,7 @@
  * @Description : energy-n14-e13-standalone-table-balance-instrument
 -->
 
-# 台式平衡训练系统-单机版
+# 台式平衡康复训练仪-单机版
 
 ## 串口定义
 
