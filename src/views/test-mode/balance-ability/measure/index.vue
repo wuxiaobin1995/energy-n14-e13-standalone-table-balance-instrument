@@ -1,7 +1,7 @@
 <!--
  * @Author      : Mr.bin
  * @Date        : 2022-12-24 17:40:53
- * @LastEditTime: 2023-03-10 11:02:27
+ * @LastEditTime: 2023-03-15 15:13:55
  * @Description : 平衡能力测试-具体测量
 -->
 <template>
@@ -33,7 +33,10 @@
         </div>
         <div class="result">
           <div class="text">得分</div>
-          <div class="value">{{ res }}</div>
+          <el-radio-group v-model="res">
+            <el-radio class="value" border :label="0">0分</el-radio>
+            <el-radio class="value" border :label="1">1分</el-radio>
+          </el-radio-group>
         </div>
         <div class="btn">
           <el-button
@@ -66,9 +69,6 @@ import Readline from '@serialport/parser-readline'
 
 /* 数据库 */
 import { initDB } from '@/db/index.js'
-
-/* 路径模块 */
-import path from 'path'
 
 /* 计算圆的相关参数 */
 import { setCircle } from '@/utils/setCircle.js'
@@ -115,7 +115,7 @@ export default {
 
       pdfTime: '',
 
-      res: '待测' // 得分，0或1
+      res: 0 // 得分，0或1
     }
   },
 
@@ -418,8 +418,8 @@ export default {
     initChart() {
       /* 相关计算 */
       const boundary = this.maxAction + parseInt(this.maxAction * 0.2) // 方形
-      const oneR = parseFloat((this.maxAction * 0.2).toFixed(1)) // 绿色圆半径
-      const twoR = parseFloat((this.maxAction * 0.6).toFixed(1)) // 黄色圆半径
+      const oneR = parseFloat((this.maxAction * 0.1).toFixed(1)) // 绿色圆半径
+      const twoR = parseFloat((this.maxAction * 0.3).toFixed(1)) // 黄色圆半径
       const threeR = this.maxAction // 红色圆半径
       const oneRound = setCircle(0, 0, oneR) // 绿色圆数组
       const twoRound = setCircle(0, 0, twoR) // 黄色圆数组
@@ -583,24 +583,24 @@ export default {
       }
       this.time = 0
 
-      /* 计算得分，0或1 */
-      const r = parseFloat((this.maxAction * 0.6).toFixed(1)) // 60%的位置
-      const yesArray = []
+      /* 计算得分，超出绿圈就0分 */
+      const r = parseFloat((this.maxAction * 0.1).toFixed(1)) // 绿圈
       let l = 0
       for (let i = 0; i < this.trajectoryArray.length; i++) {
         const itemArrray = this.trajectoryArray[i]
         l = Math.sqrt(Math.pow(itemArrray[0], 2) + Math.pow(itemArrray[1], 2))
-        if (l <= r) {
-          yesArray.push(1)
+        if (l > r) {
+          this.res = 0
+          break
+        } else {
+          this.res = 1
         }
       }
-      const rate = yesArray.length / this.trajectoryArray.length
+
       const balanceAbilityResult = this.$store.state.balanceAbilityResult
-      if (rate >= 0.6) {
-        this.res = 1
+      if (this.res === 1) {
         balanceAbilityResult[this.balanceAbilityResultItem] = 1
       } else {
-        this.res = 0
         balanceAbilityResult[this.balanceAbilityResultItem] = 0
       }
       this.$store.dispatch('changeBalanceAbilityResult', balanceAbilityResult)
@@ -845,12 +845,7 @@ export default {
           font-size: 30px;
         }
         .value {
-          margin-top: 10px;
-          font-size: 24px;
-          color: green;
-          border: 2px solid black;
-          border-radius: 6px;
-          padding: 8px 30px;
+          margin-top: 20px;
         }
       }
 
