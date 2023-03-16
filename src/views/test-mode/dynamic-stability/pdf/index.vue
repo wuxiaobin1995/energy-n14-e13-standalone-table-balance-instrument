@@ -1,7 +1,7 @@
 <!--
  * @Author      : Mr.bin
  * @Date        : 2023-02-02 13:54:59
- * @LastEditTime: 2023-03-15 14:54:04
+ * @LastEditTime: 2023-03-16 09:31:38
  * @Description : 动态稳定测试-PDF
 -->
 <template>
@@ -149,7 +149,7 @@ export default {
           const greenArray = []
           const yellowArray = []
           const redArray = []
-          const greenRound = parseFloat((this.maxAction * 0.1).toFixed(1)) // 绿圈的位置
+          const greenRound = parseFloat((this.maxAction * 0.15).toFixed(1)) // 绿圈的位置
           const yellowRound = parseFloat((this.maxAction * 0.3).toFixed(1)) // 黄圈的位置
 
           let l = 0
@@ -218,7 +218,7 @@ export default {
     initChart() {
       /* 相关计算 */
       const boundary = this.maxAction + parseInt(this.maxAction * 0.2) // 方形
-      const oneR = parseFloat((this.maxAction * 0.1).toFixed(1)) // 绿色圆半径
+      const oneR = parseFloat((this.maxAction * 0.15).toFixed(1)) // 绿色圆半径
       const twoR = parseFloat((this.maxAction * 0.3).toFixed(1)) // 黄色圆半径
       const threeR = this.maxAction // 红色圆半径
       const oneRound = setCircle(0, 0, oneR) // 绿色圆数组

@@ -1,7 +1,7 @@
 <!--
  * @Author      : Mr.bin
  * @Date        : 2022-12-24 17:52:20
- * @LastEditTime: 2023-03-15 11:02:22
+ * @LastEditTime: 2023-03-16 09:29:42
  * @Description : 一档睁眼直立-左腿
 -->
 <template>
@@ -87,7 +87,7 @@ export default {
       const maxAction = parseInt(window.localStorage.getItem('maxAction'))
 
       const boundary = maxAction + parseInt(maxAction * 0.2) // 方形
-      const oneR = parseFloat((maxAction * 0.1).toFixed(1)) // 绿色圆半径
+      const oneR = parseFloat((maxAction * 0.15).toFixed(1)) // 绿色圆半径
       const twoR = parseFloat((maxAction * 0.3).toFixed(1)) // 黄色圆半径
       const threeR = maxAction // 红色圆半径
       const oneRound = setCircle(0, 0, oneR) // 绿色圆数组

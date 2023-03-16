@@ -232,7 +232,7 @@ export default {
     initChart() {
       /* 相关计算 */
       const boundary = this.maxAction + parseInt(this.maxAction * 0.2) // 方形
-      const oneR = parseFloat((this.maxAction * 0.1).toFixed(1)) // 绿色圆半径
+      const oneR = parseFloat((this.maxAction * 0.15).toFixed(1)) // 绿色圆半径
       const twoR = parseFloat((this.maxAction * 0.3).toFixed(1)) // 黄色圆半径
       const threeR = this.maxAction // 红色圆半径
       const oneRound = setCircle(0, 0, oneR) // 绿色圆数组
