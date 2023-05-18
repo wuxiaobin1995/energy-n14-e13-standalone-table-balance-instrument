@@ -1,7 +1,7 @@
 <!--
  * @Author      : Mr.bin
  * @Date        : 2022-06-24 09:29:49
- * @LastEditTime: 2023-02-02 14:19:30
+ * @LastEditTime: 2023-05-17 16:07:44
  * @Description : 用户
 -->
 <template>
@@ -426,7 +426,7 @@ export default {
               header: tHeader, // 表头 必填
               data: exportData, // 具体数据 必填
               filename:
-                '台式平衡训练软件-单机版-所有用户信息 ' +
+                '台式平衡康复训练仪-单机版-所有用户信息 ' +
                 this.$moment().format('YYYY-MM-DD HH_mm_ss'), // 导出文件名，非必填
               autoWidth: true, // 自适应列宽，非必填
               bookType: 'xlsx' // 导出格式，非必填
