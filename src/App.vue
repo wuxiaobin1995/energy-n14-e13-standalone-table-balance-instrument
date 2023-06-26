@@ -1,7 +1,7 @@
 <!--
  * @Author      : Mr.bin
  * @Date        : 2022-04-22 09:49:03
- * @LastEditTime: 2023-03-14 15:20:45
+ * @LastEditTime: 2023-06-26 11:04:24
  * @Description : 根组件
 -->
 <template>
@@ -32,15 +32,7 @@ export default {
   },
 
   created() {
-    /* 初始化医院名称 */
-    if (!window.localStorage.getItem('hospital')) {
-      window.localStorage.setItem('hospital', '')
-    }
-    /* 初始化边界运动距离，x轴单边60mm，y轴单边90mm */
-    if (!window.localStorage.getItem('maxAction')) {
-      window.localStorage.setItem('maxAction', 60)
-    }
-
+    this.initLocalStorage()
     this.initSerialPort()
   },
   beforeDestroy() {
@@ -52,6 +44,28 @@ export default {
   },
 
   methods: {
+    /**
+     * @description: 软件启动后，初始化localStorage的一些值
+     */
+    initLocalStorage() {
+      /* 初始化医院名称 */
+      if (!window.localStorage.getItem('hospital')) {
+        window.localStorage.setItem('hospital', '')
+      }
+      /* 初始化边界运动距离，x轴单边60mm，y轴单边90mm */
+      if (!window.localStorage.getItem('maxAction')) {
+        window.localStorage.setItem('maxAction', 60)
+      }
+      /* 初始化免责声明的终端用户名称 */
+      if (!window.localStorage.getItem('disclaimer_name')) {
+        window.localStorage.setItem('disclaimer_name', '')
+      }
+      /* 初始化免责声明的设备编号 */
+      if (!window.localStorage.getItem('disclaimer_device_id')) {
+        window.localStorage.setItem('disclaimer_device_id', '')
+      }
+    },
+
     /**
      * @description: 初始化串口对象
      */
