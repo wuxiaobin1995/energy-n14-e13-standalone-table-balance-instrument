@@ -1,7 +1,7 @@
 <!--
  * @Author      : Mr.bin
  * @Date        : 2023-06-22 16:00:59
- * @LastEditTime: 2023-06-22 17:34:58
+ * @LastEditTime: 2023-07-03 16:09:27
  * @Description : 导出所选用户的数据（测试、训练、......）
 -->
 <template>
@@ -97,6 +97,7 @@ export default {
       loading: false, // 加载动画
 
       allUserData: [], // user表的所有用户数据
+
       allTestData: [], // test_data表的所有数据
       allTrainData: [], // train_data表的所有数据
 
@@ -185,6 +186,12 @@ export default {
           for (let i = 0; i < this.allTestData.length; i++) {
             const item = this.allTestData[i]
             if (userIdArray.includes(item.userId)) {
+              const trajectoryArray = JSON.stringify(item.trajectoryArray)
+              const balanceAbilityResult = JSON.stringify(
+                item.balanceAbilityResult
+              )
+              item.trajectoryArray = trajectoryArray
+              item.balanceAbilityResult = balanceAbilityResult
               this.outputTestData.push(item)
             }
           }
@@ -203,7 +210,9 @@ export default {
                 hospital: '医院',
                 pdfTime: '测量时间',
                 type: '类型',
-                currentAge: '完成该测量时的岁数'
+                currentAge: '完成该测量时的岁数',
+                trajectoryArray: '数据源',
+                balanceAbilityResult: '测量结果（平衡能力测试专用）'
               }
               const tHeader = Object.values(excelTitle)
               // 会根据key键的顺序、属性值等动态变化
@@ -283,6 +292,8 @@ export default {
           for (let i = 0; i < this.allTrainData.length; i++) {
             const item = this.allTrainData[i]
             if (userIdArray.includes(item.userId)) {
+              const trajectoryArray = JSON.stringify(item.trajectoryArray)
+              item.trajectoryArray = trajectoryArray
               this.outputTrainData.push(item)
             }
           }
@@ -302,7 +313,8 @@ export default {
                 pdfTime: '测量时间',
                 type: '类型',
                 posture: '动作',
-                currentAge: '完成该测量时的岁数'
+                currentAge: '完成该测量时的岁数',
+                trajectoryArray: '数据源'
               }
               const tHeader = Object.values(excelTitle)
               // 会根据key键的顺序、属性值等动态变化
