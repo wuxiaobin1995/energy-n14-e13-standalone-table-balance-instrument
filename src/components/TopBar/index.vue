@@ -1,7 +1,7 @@
 <!--
  * @Author      : Mr.bin
  * @Date        : 2022-09-15 16:09:19
- * @LastEditTime: 2023-05-18 11:24:36
+ * @LastEditTime: 2024-01-11 17:31:31
  * @Description : 顶部栏
 -->
 <template>
@@ -14,7 +14,7 @@
         fit="scale-down"
         @click.native="handleToHome"
       ></el-image>
-      <span class="text">台式平衡康复训练仪</span>
+      <span class="text">台式平衡训练仪</span>
     </div>
 
     <!-- 其他 -->
