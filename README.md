@@ -1,11 +1,11 @@
 <!--
  * @Author      : Mr.bin
  * @Date        : 2022-04-22 09:49:27
- * @LastEditTime: 2023-03-14 15:19:31
+ * @LastEditTime: 2024-04-10 14:05:41
  * @Description : energy-n14-e13-standalone-table-balance-instrument
 -->
 
-# 台式平衡康复训练仪-单机版
+# 台式平衡训练软件-单机版
 
 ## 串口定义
 

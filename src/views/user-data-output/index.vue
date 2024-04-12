@@ -222,7 +222,7 @@ export default {
                 header: tHeader, // 表头 必填
                 data: exportData, // 具体数据 必填
                 filename:
-                  '台式平衡康复训练仪-单机版-用户测试数据 ' +
+                  '台式平衡训练软件-单机版-用户测试数据 ' +
                   this.$moment().format('YYYY-MM-DD HH_mm_ss'), // 导出文件名，非必填
                 autoWidth: true, // 自适应列宽，非必填
                 bookType: 'xlsx' // 导出格式，非必填
@@ -327,7 +327,7 @@ export default {
                 header: tHeader, // 表头 必填
                 data: exportData, // 具体数据 必填
                 filename:
-                  '台式平衡康复训练仪-单机版-用户训练数据 ' +
+                  '台式平衡训练软件-单机版-用户训练数据 ' +
                   this.$moment().format('YYYY-MM-DD HH_mm_ss'), // 导出文件名，非必填
                 autoWidth: true, // 自适应列宽，非必填
                 bookType: 'xlsx' // 导出格式，非必填
