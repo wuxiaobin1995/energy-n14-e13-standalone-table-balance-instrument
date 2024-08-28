@@ -1,7 +1,7 @@
 <!--
  * @Author      : Mr.bin
  * @Date        : 2023-02-02 20:10:00
- * @LastEditTime: 2023-03-15 15:00:09
+ * @LastEditTime: 2024-07-31 11:57:30
  * @Description : 动态平衡训练-具体测量
 -->
 <template>
