@@ -1,7 +1,7 @@
 <!--
  * @Author      : Mr.bin
  * @Date        : 2023-02-02 16:30:02
- * @LastEditTime: 2023-03-15 14:55:12
+ * @LastEditTime: 2025-01-03 15:08:11
  * @Description : 静态稳定测试-具体测量
 -->
 <template>
@@ -180,7 +180,8 @@ export default {
               const x = parseInt(dataArray[0])
               const y = parseInt(dataArray[1])
 
-              this.dx = parseInt(x - this.$store.state.zeroStandard.xStandard)
+              // this.dx = parseInt(x - this.$store.state.zeroStandard.xStandard)
+              this.dx = parseInt(this.$store.state.zeroStandard.xStandard - x)
               this.dy = parseInt(this.$store.state.zeroStandard.yStandard - y)
 
               if (!isNaN(this.dx) && !isNaN(this.dy)) {

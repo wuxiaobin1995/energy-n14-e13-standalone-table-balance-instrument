@@ -180,7 +180,8 @@ export default {
               const x = parseInt(dataArray[0])
               const y = parseInt(dataArray[1])
 
-              this.dx = parseInt(x - this.$store.state.zeroStandard.xStandard)
+              // this.dx = parseInt(x - this.$store.state.zeroStandard.xStandard)
+              this.dx = parseInt(this.$store.state.zeroStandard.xStandard - x)
               this.dy = parseInt(this.$store.state.zeroStandard.yStandard - y)
 
               if (!isNaN(this.dx) && !isNaN(this.dy)) {

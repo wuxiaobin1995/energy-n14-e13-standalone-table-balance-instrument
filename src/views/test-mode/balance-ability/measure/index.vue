@@ -1,7 +1,7 @@
 <!--
  * @Author      : Mr.bin
  * @Date        : 2022-12-24 17:40:53
- * @LastEditTime: 2023-03-16 09:31:00
+ * @LastEditTime: 2025-01-03 15:08:42
  * @Description : 平衡能力测试-具体测量
 -->
 <template>
@@ -357,7 +357,8 @@ export default {
               const x = parseInt(dataArray[0])
               const y = parseInt(dataArray[1])
 
-              this.dx = parseInt(x - this.$store.state.zeroStandard.xStandard)
+              // this.dx = parseInt(x - this.$store.state.zeroStandard.xStandard)
+              this.dx = parseInt(this.$store.state.zeroStandard.xStandard - x)
               this.dy = parseInt(this.$store.state.zeroStandard.yStandard - y)
 
               if (!isNaN(this.dx) && !isNaN(this.dy)) {
